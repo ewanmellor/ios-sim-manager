@@ -62,8 +62,8 @@ ios-sim-manager is by Ewan Mellor.
 
 It is is heavily influenced by Musical Chairs by Orta Therox & Art.sy
 (https://github.com/orta/chairs) except:
-1. I found their push/pull terminology confusing, so I'm using
-save/restore instead;
+
+1. I found their push/pull terminology confusing, so I'm using save/restore instead;
 2. I did not like the fact that it put the state in a subdirectory in your
 source repo because that made recursive grep miserable, so state is stored
 in ~/.chairs instead;
