@@ -69,3 +69,6 @@ source repo because that made recursive grep miserable, so state is stored
 in ~/.chairs instead;
 3. it's written in 200 lines of bash, not 600 lines of Ruby.
 
+# License
+
+ios-sim-manager is MIT-licensed.  See LICENSE.  Have fun.
