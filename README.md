@@ -56,7 +56,11 @@ IOS_SIM_MANAGER_DIR='wherever you cloned this repo'
 ln -s "$IOS_SIM_MANAGER_DIR/ios-sim-manager" ~/bin/sim
 ```
 
-ios-sim-manager is heavily influenced by Musical Chairs by Orta Therox & Art.sy
+# Credits
+
+ios-sim-manager is by Ewan Mellor.
+
+It is is heavily influenced by Musical Chairs by Orta Therox & Art.sy
 (https://github.com/orta/chairs) except:
 1. I found their push/pull terminology confusing, so I'm using
 save/restore instead;
