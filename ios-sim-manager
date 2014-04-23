@@ -69,17 +69,15 @@ cmd_save()
   if [ -e "$instance_state_dir" ]
   then
     read -p "$instance_state_dir already exists; overwrite it? [yN] " -r
-    if [[ $REPLY =~ ^[Yy]$ ]]
+    if ! [[ $REPLY =~ ^[Yy]$ ]]
     then
-      rm -R "$instance_state_dir"
-    else
       exit 1
     fi
   fi
 
   mkdir -p "$instance_state_dir"
   echo -n "Copying $readable_app_base_dir to $readable_instance_state_dir... "
-  cp -R "$app_base_dir"/* "$instance_state_dir"
+  rsync -a --delete "$app_base_dir"/* "$instance_state_dir"
   echo "done."
 }
 
@@ -94,13 +92,15 @@ cmd_restore()
     exit 1
   fi
 
-  local backup_date=$(date '+%Y-%m-%d-%H-%M-%S')
-  local backup_dir=".backup-$backup_date"
+  # The backups are disabled because they slow things down,
+  # and are really only useful when debugging this script.
+  #local backup_date=$(date '+%Y-%m-%d-%H-%M-%S')
+  #local backup_dir=".backup-$backup_date"
   echo -n "Copying $readable_instance_state_dir to $readable_app_base_dir... "
-  mkdir -p "$app_base_dir/$backup_dir"
-  mv "$app_base_dir"/* "$app_base_dir/$backup_dir"
-  trap "restore_backup $backup_dir" ERR
-  cp -R "$instance_state_dir"/* "$app_base_dir"
+  #mkdir -p "$app_base_dir/$backup_dir"
+  #mv "$app_base_dir"/* "$app_base_dir/$backup_dir"
+  #trap "restore_backup $backup_dir" ERR
+  rsync -a --delete "$instance_state_dir"/* "$app_base_dir"
   echo "done."
 }
 
