@@ -12,11 +12,11 @@ usage()
   cat >&2 <<EOF
 Usage:
 
-   $app save [name]     Save the current simulator state as [name]
-   $app restore [name]  Restore the simulator state saved as [name]
+   $app save <name>     Save the current simulator state as <name>
+   $app restore <name>  Restore the simulator state saved as <name>
    $app list            List all saved states
    $app ls              Ditto
-   $app rm [name]       Delete the simulator state saved as [name]
+   $app rm <name>       Delete the simulator state saved as <name>
    $app clean           Delete all saved simulator state
    $app pwd             Print the current app folder
    $app open            Open the current app folder in Finder
